@@ -1,0 +1,197 @@
+# Build Primer-Specific Databases Using rCRUX
+Based on [Curd et al. 2023](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10312559/)  
+[rCRUX repo](https://github.com/CalCOFI/rCRUX?tab=readme-ov-file)
+
+
+### Install/ Update NCBI's BLAST+ Toolkit
+
+Downloaded the .dmg installer (v2.10.1 is last update that is confirmed compatible with rCRUX) from https://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/ and followed instructions [here](https://www.ncbi.nlm.nih.gov/books/NBK569861/) on installation
+
+
+### Download Blast-formatted database
+Download of entire NCBI nt database is in chunks. Latest is nt.146, updated 6/10/2024 (see [here](https://ftp.ncbi.nlm.nih.gov/blast/db/)). Donwload all (takes many hours).
+
+(run in terminal)
+
+```{bash}
+mkdir NCBI_blast_nt
+cd NCBI_blast_nt
+wget "ftp://ftp.ncbi.nlm.nih.gov/blast/db/nt.???.tar.gz*"
+time for file in *.tar.gz; do tar -zxvf $file; done
+cd ..
+
+```
+You need to download ALL nt files: https://bioinformatics.stackexchange.com/questions/17918/do-i-have-to-download-all-nt-xx-files-to-perform-a-search-in-blastn-2-12-0
+The ???in file name allows you to get all 146 nt updates (currently)
+
+
+#### Check blast+ install and database download
+```{bash}
+blastdbcmd -db 'NCBI_blast_nt/nt' -dbtype nucl -entry MN937193.1 -range 499-633
+```
+
+
+
+
+### Install/ Update Taxonomizr Taxonomy
+Was getting errors that I didn't have libcurl. Needed to update `curl`, which required new version of Apple Command Line Tools to be installed with: `xcode-select --install` and various updates to Homebrew. Then installed with Homebrew using `brew install curl`. YMMV
+
+Install/ load [taxonomizr](https://github.com/sherrillmix/taxonomizr)
+```{r}
+# install.packages("taxonomizr")
+library(taxonomizr)
+```
+
+
+Download tax assignments from NCBI and make SQLite database (this takes several hours) following instructions from [https://github.com/sherrillmix/taxonomizr](https://github.com/sherrillmix/taxonomizr). 
+
+```{r}
+accession_taxa_sql_path <- "taxonomizr-acc-taxa-Jun2024/accessionTaxa.sql"
+prepareDatabase(accession_taxa_sql_path)
+
+```
+
+## Install rCRUX
+
+```{r}
+# install.packages("devtools")
+# devtools::install_github("CalCOFI/rCRUX", build_vignettes = TRUE)
+library("rCRUX")
+```
+
+
+
+## rCRUX Pipeline
+
+
+
+
+### Get seeds
+Use local option after downloading entire nt database. (If running remote, the NCBI taxID for [Elasmobranchii](https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=7778) is 7778)
+
+Primers are Elas02from [Taberlet et al. 2018](https://academic.oup.com/book/32663?login=true); Note: this is a book chapter but the full primers are also published in Table 1 in [Collins et al. 2019](https://besjournals.onlinelibrary.wiley.com/doi/10.1111/2041-210X.13276). Amplify a subregion of 12S rRNA that is 171 bp long.
+
+Elas02-f, 5’-3’: GTTGGTHAATCTCGTGCCAGC
+Elas02-r, 5’-3’: CATAGTAGGGTATCTAATCCTAGTTTG
+
+
+```{r}
+# dir.create("Taberlet-elas02-local-20240612")
+
+forward_primer_seq = "GTTGGTHAATCTCGTGCCAGC"
+reverse_primer_seq =  "CATAGTAGGGTATCTAATCCTAGTTTG"
+output_directory_path <- "Taberlet-elas02-local-20240612/" # path to desired output directory
+metabarcode_name <- "elas02" # desired name of metabarcode locus
+accession_taxa_sql_path <- "taxonomizr-acc-taxa-Jun2024/accessionTaxa.sql" # path to taxonomizr sql database
+blast_db_path <- "NCBI_blast_nt/nt"  # path to blast formatted database
+
+
+get_seeds_local(forward_primer_seq,
+                 reverse_primer_seq,
+                 metabarcode_name,
+                 output_directory_path,
+                 accession_taxa_sql_path,
+                 blast_db_path, mismatch = 3, max_to_blast = 3)
+
+```
+
+
+### Blast seeds
+
+```{r}
+seeds_output_path <- 'Taberlet-elas02-local-20240612/get_seeds_local/elas02_filtered_get_seeds_local_output_with_taxonomy.csv' # this is output from get_seeds_local or get_seeds_remote
+blast_db_path <- "NCBI_blast_nt/nt"  # path to blast formatted database
+accession_taxa_sql_path <- "taxonomizr-acc-taxa-Jun2024/accessionTaxa.sql" # path to taxonomizr sql database
+output_directory_path <- 'Taberlet-elas02-local-20240612/' # path to desired output directory
+metabarcode_name <- "elas02"  # desired name of metabarcode locus
+
+
+blast_seeds(seeds_output_path,
+            blast_db_path,
+            accession_taxa_sql_path,
+            output_directory_path,
+            metabarcode_name)    
+```
+
+
+### Dereplicate database
+
+```{r}
+output_directory_path <- 'Taberlet-elas02-local-20240612/' # path to desired output directory
+metabarcode_name <- "elas02"  # desired name of metabarcode locus
+summary_path <- "Taberlet-elas02-local-20240612/blast_seeds_output/summary.csv" # path to the output from blast_seeds
+
+derep_and_clean_db(output_directory_path, summary_path, metabarcode_name)
+```
+
+Checked `elas02_derep_and_clean_taxonomy.txt` for known expected taxa (eg. Mustelus canis, Squalus acanthias, Raja eglanteria, Bathytoshia centroura, Rhinoptera bonasus, Leucoraja erinacea, Leucoraja ocellata, Carcharias taurus, Isurus oxyrinchus, Amblyraja radiata, Myliobatis freminvillei, Gymnura altavela)- all exist (plus many more).
+
+### Make into blast formatted db
+
+[Documentation](https://www.ncbi.nlm.nih.gov/books/NBK569841/)
+(Run interminal)
+
+---
+7/1/2024
+Trying to make mapping file. I tried to a long time to grab the results from rCRUX in `derep_and_clean_db`, the taxid columns from `Sequences_with_single_taxonomic_path.csv` and `Sequences_with_multiple_taxonomic_paths.csv` . But the problem is that the pipeline puts multiple acc no's and taxids into on row if they are repeated sequences. I tried forvever but couldn't get `makeblastdb` to accept this format, no matter if I change the delimiter etc. (eg. using some tips from [here](https://bioinformatics.stackexchange.com/questions/18401/assign-multiple-taxids-to-a-sequence-when-constructing-a-local-blast-database))
+
+
+Instead, try grabbing a list of acc no's from the fasta file and get taxID using taxonomizr (installed above)
+
+First remove excess text from fasta file
+```{bash}
+cd Taberlet-elas02-local-20240612/derep_and_clean_db/
+sed 's/_representative_of_[0-9]*_identical_accessions//g' elas02_derep_and_clean.fasta > elas02_derep_and_clean_2.fasta
+cd ..
+```
+(Note different syntax for `sed` in [Mac OS vs other OS](https://www.cyberciti.biz/faq/how-to-use-sed-to-find-and-replace-text-in-files-in-linux-unix-shell/))
+
+
+Get list of acc no's into new file
+```{bash}
+grep -e ">" elas02_derep_and_clean_2.fasta | awk 'sub(/^>/, "")' > AccNos.txt
+
+```
+
+Move into R
+```{r}
+accNos <-  read.table(file = "Taberlet-elas02-local-20240612/derep_and_clean_db/AccNos.txt", header=FALSE,stringsAsFactors=FALSE)
+
+accessions<-sapply(strsplit(accNos[,1],'\\|'),'[',1)
+head(accessions)
+```
+
+Find taxonomy for accession numbers (takes a few minutes)
+```{r}
+taxaId<-accessionToTaxa(accessions,"taxonomizr-acc-taxa-Jun2024/accessionTaxa.sql")
+head(taxaId)
+```
+
+
+Concatenate with acc nos and export into txt file
+```{r}
+mapping_file <- data.frame(accessions, taxaId)
+head(mapping_file)
+```
+
+```{r}
+write.table(mapping_file, "Taberlet-elas02-local-20240612/mapping_file.txt", sep='\t', col.names = FALSE, row.names = FALSE, quote=FALSE)
+```
+
+
+
+
+Use blast+ to make blastdb and call it nt (because this is how it's called in REVAMP pipeline. Want to try not to modify `REVAMP.sh` as much as possible)
+
+```{bash}
+mkdir blastdb
+
+makeblastdb -in derep_and_clean_db/elas02_derep_and_clean_2.fasta -dbtype nucl -parse_seqids -out blastdb/nt -blastdb_version 5 -taxid_map mapping_file.txt
+```
+
+
+And check that the database has taxIDs associated:
+```{bash}
+blastdbcmd -db blastdb/nt -entry all -outfmt "%T"
+```
+As long as this spits out numbers and not all zeroes, I think it worked.
