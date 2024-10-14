@@ -2,7 +2,7 @@
 Based on [Curd et al. 2023](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10312559/)  
 [rCRUX repo](https://github.com/CalCOFI/rCRUX?tab=readme-ov-file)
 
-
+## July 2024
 ### Install/ Update NCBI's BLAST+ Toolkit
 
 Downloaded the .dmg installer (v2.10.1 is last update that is confirmed compatible with rCRUX) from https://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/ and followed instructions [here](https://www.ncbi.nlm.nih.gov/books/NBK569861/) on installation
@@ -16,19 +16,26 @@ Download of entire NCBI nt database is in chunks. Latest is nt.146, updated 6/10
 ```{bash}
 mkdir NCBI_blast_nt
 cd NCBI_blast_nt
-wget "ftp://ftp.ncbi.nlm.nih.gov/blast/db/nt.???.tar.gz*"
+wget "ftp://ftp.ncbi.nlm.nih.gov/blast/db/nt.???.tar.gz*" -c
 time for file in *.tar.gz; do tar -zxvf $file; done
 cd ..
 
+# had some errors unzipping due to space constraints. After moving files around, I want to retry unzipping files 137-185
+
+for i in {121..185}; do
+  time for file in nt.$i.tar.gz; do tar -zxvf $file; done
+done
 ```
 You need to download ALL nt files: https://bioinformatics.stackexchange.com/questions/17918/do-i-have-to-download-all-nt-xx-files-to-perform-a-search-in-blastn-2-12-0
-The ???in file name allows you to get all 146 nt updates (currently)
+The ???in file name allows you to get all 146 nt updates (as of Jul 2024)
+As of Oct 2024: 185 files in nt
 
 
 #### Check blast+ install and database download
 ```{bash}
 blastdbcmd -db 'NCBI_blast_nt/nt' -dbtype nucl -entry MN937193.1 -range 499-633
 ```
+* Note the above only works in my `REVAMPenv` (run `conda activate REVAMPenv`) which has correct version of blast tools. See Elas02-notebook.md for more details.
 
 
 
@@ -46,10 +53,19 @@ library(taxonomizr)
 Download tax assignments from NCBI and make SQLite database (this takes several hours) following instructions from [https://github.com/sherrillmix/taxonomizr](https://github.com/sherrillmix/taxonomizr). 
 
 ```{r}
-accession_taxa_sql_path <- "taxonomizr-acc-taxa-Jun2024/accessionTaxa.sql"
-prepareDatabase(accession_taxa_sql_path)
+#accession_taxa_sql_path <- "taxonomizr-acc-taxa-Oct2024/accessionTaxa.sql"
+#prepareDatabase(accession_taxa_sql_path, )
+
+# the above was working in July but in Oct kept giving error so I had to do it manually according to docs
+
+getAccession2taxid(baseUrl='https://ftp.ncbi.nih.gov/pub/taxonomy/accession2taxid/', resume = TRUE)
+read.names.sql('names.dmp','taxonomizr-acc-taxa-Oct2024/accessionTaxa.sql', overwrite = TRUE)
+read.nodes.sql('nodes.dmp','taxonomizr-acc-taxa-Oct2024/accessionTaxa.sql', overwrite = TRUE)
+
+read.accession2taxid(list.files('.','accession2taxid.gz$'),'taxonomizr-acc-taxa-Oct2024/accessionTaxa.sql')
 
 ```
+
 
 ## Install rCRUX
 
@@ -61,7 +77,7 @@ library("rCRUX")
 
 
 
-## rCRUX Pipeline
+## rCRUX - Build Elas02 Database
 
 
 
@@ -195,3 +211,299 @@ And check that the database has taxIDs associated:
 blastdbcmd -db blastdb/nt -entry all -outfmt "%T"
 ```
 As long as this spits out numbers and not all zeroes, I think it worked.
+
+
+
+
+## October 2024
+
+
+## rCRUX - Build MiFish-U Database
+Update local nt database
+
+Check blast+ install and database download
+```{bash}
+
+cd /Volumes/easystore/eDNA/eDNA-databases/NCBI_blast_nt
+
+conda activate REVAMPenv
+
+
+## update local database
+# update_blastdb.pl --decompress nt
+
+# check
+blastdbcmd -db 'nt' -dbtype nucl -entry MN937193.1 -range 499-633
+blastn -version
+
+```
+blastn: 2.10.1+
+ Package: blast 2.10.1, build May 12 2020 13:06:02
+
+
+Primers are universal MiFISh primers from Miya et al. 2015. Amplify a subregion of 12S rRNA that is 163-185 bp long.
+
+MiFISH-U-F, 5’-3’: GTCGGTAAAACTCGTGCCAGC 
+MiFISH-U-R, 5’-3’: CATAGTGGGGTATCTAATCCCAGTTTG 
+
+
+```{r}
+# dir.create("MiFish-U-local-20241011")
+
+forward_primer_seq = "GTCGGTAAAACTCGTGCCAGC"
+reverse_primer_seq =  "CATAGTGGGGTATCTAATCCCAGTTTG"
+output_directory_path <- "MiFish-U-local-20241011/" # path to desired output directory
+metabarcode_name <- "MiFishU" # desired name of metabarcode locus
+accession_taxa_sql_path <- "taxonomizr-acc-taxa-Oct2024/accessionTaxa.sql" # path to taxonomizr sql database
+blast_db_path <- "/Volumes/MyPassport/eDNA-backup/databases/NCBI_blast_nt/nt"  # path to blast formatted database
+
+
+get_seeds_local(forward_primer_seq,
+                 reverse_primer_seq,
+                 metabarcode_name,
+                 output_directory_path,
+                 accession_taxa_sql_path,
+                 blast_db_path, mismatch = 3, max_to_blast = 2)
+
+```
+Ran in Console instead of chunk bc of memory issues. Output:
+
+```
+[1] "output directory exists"
+Output directory: MiFish-U-local-20241011//get_seeds_local
+
+No previous primer blast files found. Starting pipeline from beginning.
+
+Examining primers for degenerate bases.
+  1 forward primer(s) will be blasted.
+  1 reverse primer(s) will be blasted.
+
+Reads will be blasted in subsets of up to 2 read(s). To change this, modify max_to_blast.                        
+
+Calling blastn for primers. This may take a long time.
+
+blastn -db /Volumes/MyPassport/eDNA-backup/databases/NCBI_blast_nt/nt -task blastn-short -query MiFish-U-local-20241011//get_seeds_local/MiFishU_subset_for_blastn.fasta -outfmt "6 qseqid sgi saccver mismatch sstart send staxids" -evalue 3e+07 -num_alignments 10000000 -qcov_hsp_perc 90 -perc_identity 50 -reward 2 -word_size 7 -num_threads 1
+
+Blasting complete.
+
+Wrangling results.
+
+Joining with `by = join_by(saccver)`
+Joining with `by = join_by(saccver)`
+Joining with `by = join_by(saccver)`
+Joining with `by = join_by(saccver)`
+Joining with `by = join_by(saccver)`
+Joining with `by = join_by(saccver)`
+Joining with `by = join_by(saccver)`
+Joining with `by = join_by(saccver)`
+Joining with `by = join_by(saccver)`
+Joining with `by = join_by(saccver)`
+Joining with `by = join_by(saccver)`
+Joining with `by = join_by(saccver)`
+Joining with `by = join_by(saccver)`
+Joining with `by = join_by(saccver)`
+Joining with `by = join_by(saccver)`
+Joining with `by = join_by(saccver)`
+Attaching taxonomies.
+
+Done.
+# A tibble: 56,038 × 37
+   qseqid.x      gi     accession mismatch_forward forward_start forward_stop staxids distinct_entries.x qseqid.y
+   <chr>         <chr>  <chr>     <chr>                    <int>        <int> <chr>                <int> <chr>   
+ 1 forward_row_1 10483… 3JD5_A    2                          223          243 9913                     2 reverse…
+ 2 forward_row_1 81051… 5AJ3_A    2                          228          248 9823                     2 reverse…
+ 3 forward_row_1 22540… 7PNT_A    3                          224          244 10090                    2 reverse…
+ 4 forward_row_1 22540… 7PNV_A    3                          224          244 10090                    2 reverse…
+ 5 forward_row_1 25190… 8OIN_AA   2                          226          246 9823                     2 reverse…
+ 6 forward_row_1 25096… 8OIP_AA   2                          228          248 9823                     2 reverse…
+ 7 forward_row_1 18164… AB000667… 0                         2697         2715 8255                     2 reverse…
+ 8 forward_row_1 45869… AB018224… 1                          228          248 76798                    2 reverse…
+ 9 forward_row_1 45869… AB018225… 1                          228          248 83387                    2 reverse…
+10 forward_row_1 45869… AB018226… 1                          229          247 83388                    2 reverse…
+# ℹ 56,028 more rows
+# ℹ 28 more variables: mismatch_reverse <chr>, reverse_start <int>, reverse_stop <int>,
+#   distinct_entries.y <int>, product_length <dbl>, taxid <int>, species <chr>, superkingdom <chr>,
+#   kingdom <chr>, phylum <chr>, subphylum <chr>, superclass <chr>, class <chr>, subclass <chr>, order <chr>,
+#   family <chr>, subfamily <chr>, genus <chr>, infraorder <chr>, subcohort <chr>, superorder <chr>,
+#   superfamily <chr>, tribe <chr>, subspecies <chr>, subgenus <chr>, species.group <chr>, parvorder <chr>,
+#   varietas <chr>
+# ℹ Use `print(n = ...)` to see more rows
+```
+
+### Blast seeds
+
+```{r}
+seeds_output_path <- 'MiFish-U-local-20241011/get_seeds_local/MiFishU_filtered_get_seeds_local_output_with_taxonomy.csv' # this is output from get_seeds_local or get_seeds_remote
+
+
+blast_seeds(seeds_output_path,
+            blast_db_path,
+            accession_taxa_sql_path,
+            output_directory_path,
+            metabarcode_name)    
+```
+
+```
+Output directory: MiFish-U-local-20241011//blast_seeds_output
+
+Blasting seeds.
+
+BLAST round: 1
+  56038 indices left to process.
+
+genus has 5028 unique occurrences in the blast seeds data table.
+These may be subset ...
+
+tmp - Subsetting sample_indices
+
+Running blastdbcmd on 1000 samples.
+
+Calling blastn. This may take a long time.                                                                     
+  1525877 blast hits returned.
+  66192 unique blast hits after this round.
+
+tmp - Subsetting sample_indices
+
+Running blastdbcmd on 1000 samples.
+
+Calling blastn. This may take a long time.                                                                     
+  1830785 blast hits returned.
+  124130 unique blast hits after this round.
+
+tmp - Subsetting sample_indices
+
+Running blastdbcmd on 1000 samples.
+
+Calling blastn. This may take a long time.  
+  1945508 blast hits returned.
+  131260 unique blast hits after this round.
+
+tmp - Subsetting sample_indices
+
+Running blastdbcmd on 1000 samples.
+
+Calling blastn. This may take a long time.
+  1918665 blast hits returned.
+  132480 unique blast hits after this round.
+
+tmp - Subsetting sample_indices
+
+Running blastdbcmd on 1000 samples.
+
+Calling blastn. This may take a long time.                                                                     
+  1894242 blast hits returned.
+  134325 unique blast hits after this round.
+
+tmp - length(sample_indices) <= max_to_blast
+
+Running blastdbcmd on 28 samples.
+
+Calling blastn. This may take a long time.                                                                     
+  56378 blast hits returned.
+  134345 unique blast hits after this round.
+
+Previous unsampled indices exist, continuing from there.
+BLAST round: 7
+  1708 indices left to process.
+
+genus has 0 unique occurrences in the blast seeds data table.
+An additional 0 indices will be randomly sampled.
+
+tmp - length(sample_indices) == length(unsampled_indices)
+
+Running blastdbcmd on 1708 samples.
+
+Calling blastn. This may take a long time.                                                                     
+  478185 blast hits returned.
+  360022 unique blast hits after this round.
+
+Expanding multi taxids.
+
+Blasting complete.
+
+Wrangling results.
+
+Done.
+```
+
+still running above... keep pasting output
+
+
+### Dereplicate database
+
+```{r}
+summary_path <- "MiFish-U-local-20241011/blast_seeds_output/summary.csv" # path to the output from blast_seeds
+
+derep_and_clean_db(output_directory_path, summary_path, metabarcode_name)
+```
+
+Checked `MiFIshU_derep_and_clean_taxonomy.txt'. At first glance, looks good. Lots of fish but also non-targetted mammals, some birds, insects, and even some bacteria.
+
+### Make into blast formatted db
+
+[Documentation](https://www.ncbi.nlm.nih.gov/books/NBK569841/)
+(Run interminal)
+
+
+
+First remove excess text from fasta file
+```{bash}
+cd MiFish-U-local-20241011/derep_and_clean_db/
+sed 's/_representative_of_[0-9]*_identical_accessions//g' MiFIshU_derep_and_clean.fasta > MiFishU_derep_and_clean_2.fasta
+
+```
+(Note different syntax for `sed` in [Mac OS vs other OS](https://www.cyberciti.biz/faq/how-to-use-sed-to-find-and-replace-text-in-files-in-linux-unix-shell/))
+
+
+Get list of acc no's into new file
+```{bash}
+grep -e ">" MiFishU_derep_and_clean_2.fasta | awk 'sub(/^>/, "")' > AccNos.txt
+
+```
+
+Move into R
+```{r}
+accNos <-  read.table(file = "MiFish-U-local-20241011/derep_and_clean_db/AccNos.txt", header=FALSE,stringsAsFactors=FALSE)
+
+accessions<-sapply(strsplit(accNos[,1],'\\|'),'[',1)
+head(accessions)
+```
+
+Find taxonomy for accession numbers (takes a few minutes)
+```{r}
+taxaId<-accessionToTaxa(accessions,"taxonomizr-acc-taxa-Oct2024/accessionTaxa.sql")
+head(taxaId)
+```
+
+
+Concatenate with acc nos and export into txt file
+```{r}
+mapping_file <- data.frame(accessions, taxaId)
+head(mapping_file)
+```
+
+```{r}
+write.table(mapping_file, "MiFIsh-U-local-20241011/mapping_file.txt", sep='\t', col.names = FALSE, row.names = FALSE, quote=FALSE)
+```
+
+
+
+
+Use blast+ to make blastdb and call it nt (because this is how it's called in REVAMP pipeline. Want to try not to modify `REVAMP.sh` as much as possible)
+
+```{bash}
+cd ..
+mkdir blastdb
+
+makeblastdb -in derep_and_clean_db/MiFishU_derep_and_clean_2.fasta -dbtype nucl -parse_seqids -out blastdb/nt -blastdb_version 5 -taxid_map mapping_file.txt
+```
+
+
+And check that the database has taxIDs associated:
+```{bash}
+blastdbcmd -db blastdb/nt -entry all -outfmt "%T"
+```
+As long as this spits out numbers and not all zeroes, I think it worked.
+
+
+
