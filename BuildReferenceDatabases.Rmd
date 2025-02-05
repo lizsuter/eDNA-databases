@@ -66,8 +66,14 @@ read.accession2taxid(list.files('.','accession2taxid.gz$'),'taxonomizr-acc-taxa-
 
 ```
 
+Update again in Jan 2025
+```{r}
+accession_taxa_sql_path <- "taxonomizr-acc-taxa-Jan2025/accessionTaxa.sql"
+prepareDatabase(accession_taxa_sql_path)
+```
 
-## Install rCRUX
+
+### Install rCRUX
 
 ```{r}
 # install.packages("devtools")
@@ -77,7 +83,7 @@ library("rCRUX")
 
 
 
-## rCRUX - Build Elas02 Database
+### rCRUX - Build Elas02 Database
 
 
 
@@ -218,7 +224,7 @@ As long as this spits out numbers and not all zeroes, I think it worked.
 ## October 2024
 
 
-## rCRUX - Build MiFish-U Database
+### rCRUX - Build MiFish-U Database
 Update local nt database
 
 Check blast+ install and database download
@@ -442,7 +448,7 @@ Checked `MiFIshU_derep_and_clean_taxonomy.txt'. At first glance, looks good. Lot
 ### Make into blast formatted db
 
 [Documentation](https://www.ncbi.nlm.nih.gov/books/NBK569841/)
-(Run interminal)
+(Run in terminal)
 
 
 
@@ -507,3 +513,269 @@ As long as this spits out numbers and not all zeroes, I think it worked.
 
 
 
+## November 2024
+
+Use rCRUX to generate V16S-U and VCOI-U libraries. We are trying to decide on next sequencing library and want to target reptilia, amphibia, mamamalia, aves. The paper suggests each set has different strengths but they are not broadly tested. We want to see which would be best for our local species.
+
+
+### rCRUX - Build VCOI-U Database
+We are considering new primer sets for targeting vertebrates. We found some good candidated from [Wang et al. 2023](https://www.frontiersin.org/journals/ecology-and-evolution/articles/10.3389/fevo.2023.1164206/full). Mr DNA thinks the 12S PCR would be difficult but he could get the 16S and COI to work well. In the paper, both have pretty good coverage for the mammals, reptiles, amphibians, birds. But they don't completely overlap- so use rCRUX to generate reference library seeds and see if the primers will hit our regional species that we might expect.
+
+
+Local nt database was updated in October, don't need to re-install.
+
+Check blast+ install and database download
+```{bash}
+
+cd /Volumes/MyPassportforMac/eDNA-backup/databases/NCBI_blast_nt
+
+conda activate REVAMPenv
+
+blastdbcmd -db 'nt' -dbtype nucl -entry MN937193.1 -range 499-633
+blastn -version
+
+
+```
+blastn: 2.10.1+
+ Package: blast 2.10.1, build May 12 2020 13:06:02
+ 
+** 11/20/24** NOTE- for some reason was getting a segmentation error. I re-unzipped all .gz files and that solved the problem.
+
+VCOI-U
+Amplicon size: 212
+VCOI-U-F: 5'- CAYGCHTTTGTNATRATYTTYTT -3'
+VCOI-U-R: 5'- GGRGGRTADACDGTYCANCCNGT -3'
+
+
+
+```{r}
+#dir.create("Wang-VCOI-U-local-20241121")
+
+forward_primer_seq = "CAYGCHTTTGTNATRATYTTYTT"
+reverse_primer_seq =  "GGRGGRTADACDGTYCANCCNGT"
+output_directory_path <- "Wang-VCOI-U-local-20241121" # path to desired output directory
+metabarcode_name <- "VCOI" # desired name of metabarcode locus
+accession_taxa_sql_path <- "taxonomizr-acc-taxa-Oct2024/accessionTaxa.sql" # path to taxonomizr sql database
+blast_db_path <- "/Volumes/MyPassportforMac/eDNA-backup/databases/NCBI_blast_nt/nt"  # path to blast formatted database
+
+
+get_seeds_local(forward_primer_seq,
+                 reverse_primer_seq,
+                 metabarcode_name,
+                 output_directory_path,
+                 accession_taxa_sql_path,
+                 blast_db_path, mismatch = 0, max_to_blast = 2, num_fprimers_to_blast = 192, num_rprimers_to_blast = 1152)
+
+```
+Ran in Console instead of chunk bc of memory issues. Because I am using this for a different purpose (eg. not making ref library seeds but determining all possible seeds to look through hits), I changed the `num_fprimers_to_blast` and `num_rprimers_to_blast` to be the maximum number of combinations of primers based on degeneracy. Reduced `mismatch` to 0. 
+
+This will take a long time. But increasing `max_to_blast` crashed my computer.
+
+Terminal Output:
+```
+[1] "output directory exists"
+Output directory: Wang-VCOI-U-local-20241121/get_seeds_local
+
+No previous primer blast files found. Starting pipeline from beginning.
+
+Examining primers for degenerate bases.
+  192 forward primer(s) will be blasted.
+  1152 reverse primer(s) will be blasted.
+
+Reads will be blasted in subsets of up to 2 read(s). To change this, modify max_to_blast.                                       
+
+Calling blastn for primers. This may take a long time.
+
+blastn -db /Volumes/MyPassportforMac/eDNA-backup/databases/NCBI_blast_nt/nt -task blastn-short -query Wang-VCOI-U-local-20241121/get_seeds_local/VCOI_subset_for_blastn.fasta -outfmt "6 qseqid sgi saccver mismatch sstart send staxids" -evalue 3e+07 -num_alignments 10000000 -qcov_hsp_perc 90 -perc_identity 50 -reward 2 -word_size 7 -num_threads 1
+Calling blastn for primers. This may take a long time.
+
+blastn -db /Volumes/MyPassportforMac/eDNA-backup/databases/NCBI_blast_nt/nt -task blastn-short -query Wang-VCOI-U-local-20241121/get_seeds_local/VCOI_subset_for_blastn.fasta -outfmt "6 qseqid sgi saccver mismatch sstart send staxids" -evalue 3e+07 -num_alignments 10000000 -qcov_hsp_perc 90 -perc_identity 50 -reward 2 -word_size 7 -num_threads 1
+Calling blastn for primers. This may take a long time.
+
+blastn -db /Volumes/MyPassportforMac/eDNA-backup/databases/NCBI_blast_nt/nt -task blastn-short -query Wang-VCOI-U-local-20241121/get_seeds_local/VCOI_subset_for_blastn.fasta -outfmt "6 qseqid sgi saccver mismatch sstart send staxids" -evalue 3e+07 -num_alignments 10000000 -qcov_hsp_perc 90 -perc_identity 50 -reward 2 -word_size 7 -num_threads 1
+Calling blastn for primers. This may take a long time.
+
+blastn -db /Volumes/MyPassportforMac/eDNA-backup/databases/NCBI_blast_nt/nt -task blastn-short -query Wang-VCOI-U-local-20241121/get_seeds_local/VCOI_subset_for_blastn.fasta -outfmt "6 qseqid sgi saccver mismatch sstart send staxids" -evalue 3e+07 -num_alignments 10000000 -qcov_hsp_perc 90 -perc_identity 50 -reward 2 -word_size 7 -num_threads 1
+Calling blastn for primers. This may take a long time.
+
+blastn -db /Volumes/MyPassportforMac/eDNA-backup/databases/NCBI_blast_nt/nt -task blastn-short -query Wang-VCOI-U-local-20241121/get_seeds_local/VCOI_subset_for_blastn.fasta -outfmt "6 qseqid sgi saccver mismatch sstart send staxids" -evalue 3e+07 -num_alignments 10000000 -qcov_hsp_perc 90 -perc_identity 50 -reward 2 -word_size 7 -num_threads 1
+```
+
+~ Stopped. This would take weeks! Going in a different direction, with COI primers form Leray et al.~
+
+
+## Jan 2025
+### MIDORI
+According to [Leray et al. 2022](https://onlinelibrary.wiley.com/doi/10.1002/edn3.303), MIDORI2 has higher diversity than BOLD and CO-ARBitrator and is regularly updated.
+
+The [MIDORI2 site](https://www.reference-midori.info/) has multiple versions of the database, compatible with both BLAST+ and DADA2 (and others). The last GENBANK/ BLAST-compatible version was uploaded 2024-10-13, consistent with Genbank v263.
+
+Some notes from the MIDORI README file:
+
+- "sp" = those databases include sequences that lack binomial species-level description, such as "sp.," "aff.," "nr.," "cf.," "complex," and "nomen nudum." 
+- "UNIQ" = UNIQ files contain all unique haplotypes associated with each species.
+- "LONGEST" = LONGEST files contain the longest sequence for each species.
+- List files are listing accession numbers collapsed into each sequence for uniq and longest files.
+
+Based on this, I want to choose:
+- "sp" files so that they include those references with no species name but with genus
+- At first, I was considering using the "UNIQ" files incase there is some genetic variation among haplotypes, however I was getting errors when making the blastdb about duplicate accessions... so use `LONGEST` instead
+- Try both the blast-formatted and the fasta version for now
+- also download list files to help with mapping_file(?)
+- We also provide "RAW" files, which contain complete taxonomy. Take a look
+
+I first tried the blast-formatted db from MIDORI but REVAMP was having issues with the format of the db. I am getting an `mdb_env_open: No such file or directory` error, which according to [this](https://stackoverflow.com/questions/59476703/error-mdb-env-open-no-such-file-or-directory-blast-local-database-problem) is a corrupted file. It was similar for an older version of the db also. Plus the sequence names are not just a simplified accession number so this is going to be trouble down the road...
+
+Try downloading the fasta version of the database, 'MIDORI2_UNIQ_NUC_SP_GB263_CO1_BLAST.fasta' and then, similar to above, use BLAST+ tools to turn it into a blast-formatted database
+
+Downloaded FASTA-formatted version, `MIDORI2_UNIQ_NUC_SP_GB263_CO1_BLAST.fasta`
+
+
+#### Import MIDORI db Fasta file
+
+[Documentation](https://www.ncbi.nlm.nih.gov/books/NBK569841/)
+(Run in terminal)
+
+Use blast+ to make blastdb and call it nt (because this is how it's called in REVAMP pipeline. Want to try not to modify `REVAMP.sh` as much as possible)
+
+```{bash}
+cd /Volumes/MyPassportforMac/eDNA-backup/eDNA-databases/MIDORI2_NUC_GB263_CO1
+
+unzip MIDORI2_LONGEST_NUC_GB263_CO1_BLAST.fasta.zip
+
+mkdir blastdb
+```
+
+
+Count # of headers and sequences
+```{bash}
+grep "^>" MIDORI2_LONGEST_NUC_GB263_CO1_BLAST.fasta | wc -l
+grep -v "^>" MIDORI2_LONGEST_NUC_GB263_CO1_BLAST.fasta | wc -l
+```
+226914 (Note- this is. ALOT let than the UNIQ file,  <10%)
+3178246
+Numbers should be the same but there are 3,178,246 sequences and only 226,914 headers
+This probably because some sequences have a hard enter in the middle... Fix
+
+Fix sequences so they are all on one line
+```{bash}
+awk '/^>/ {print (NR==1?"":"\n") $0; next} {printf "%s", $0} END {print ""}' MIDORI2_LONGEST_NUC_GB263_CO1_BLAST.fasta > MIDORI2_LONGEST_NUC_GB263_CO1_BLAST2.fasta
+
+```
+
+
+Check number of headers and sequences again. Should be the same now
+```{bash}
+grep "^>" MIDORI2_LONGEST_NUC_GB263_CO1_BLAST2.fasta | wc -l
+grep -v "^>" MIDORI2_LONGEST_NUC_GB263_CO1_BLAST2.fasta | wc -l
+```
+226914
+226914
+great!
+
+
+Check for duplicate sequence names (this was a problem in the UNIQ file, may be ok here)-
+```{bash}
+awk '/^>/ {print $1}' MIDORI2_LONGEST_NUC_GB263_CO1_BLAST2.fasta | sort | uniq -d
+```
+None, move on...
+
+IF there were, remove duplicates while retaining first instance
+```{bash}
+<!-- awk ' -->
+<!--   /^>/ {  -->
+<!--     if ($1 in seen) {skip=1} else {seen[$1]=1; skip=0} -->
+<!--   }  -->
+<!--   !skip' MIDORI2_LONGEST_NUC_GB263_CO1_BLAST2.fasta > MIDORI2_LONGEST_NUC_GB263_CO1_BLAST2.fasta -->
+```
+
+Simplify headers to just accesion numbers
+```{bash}
+sed -E 's/^(>..[0-9]+\.[0-9]+).*/\1/' MIDORI2_LONGEST_NUC_GB263_CO1_BLAST2.fasta > MIDORI2_LONGEST_NUC_GB263_CO1_BLAST3.fasta
+```
+
+Check for duplicates again now that headers have been simplified
+```{bash}
+awk '/^>/ {print $1}' MIDORI2_LONGEST_NUC_GB263_CO1_BLAST3.fasta | sort | uniq -d
+```
+seems OK
+
+Check for NAs in headers
+```{bash}
+grep "^>.*NA" MIDORI2_LONGEST_NUC_GB263_CO1_BLAST3.fasta
+```
+seems OK
+
+Double check number of sequences remaining
+```{bash}
+grep "^>" MIDORI2_LONGEST_NUC_GB263_CO1_BLAST3.fasta | wc -l
+grep -v "^>" MIDORI2_LONGEST_NUC_GB263_CO1_BLAST3.fasta | wc -l
+```
+  226914
+  226914
+  
+  
+Next I was trying to get taxonomy from taxonomizr but having A LOT of trouble. There are many things in this database which do not have taxonomy in taxonomizr, even things that were added to NCBI in 2021. So then the pipeline was only able to annotate 20-30% of sequences.
+I don't know why this is but it seems to be a problem that is not unique to me ([Ex](https://github.com/benjjneb/dada2/issues/1520))
+I had similar problem using the [premade rCRUX COI database](https://zenodo.org/records/8407603). Using this database the pipeline was only able to annotate 20-30% of ASVs. I even checked through the taxonomizr database very carefully and while it had some of the missing annotations, it was also missing a lot. Plut the taxonomizt db is 1,279,811 entries while the COI database is ~1.2 million and the MIDORI unique db is almost 3 million. I was to be stick with MIDORI to be as careful as possible.
+
+
+Instead, switch to using taxonomy from MIDORI to make the mapping file...
+
+#### Mapping file
+The MIDORI2 db fasta file has headers like this: ``>MH535936.1.<1.>890###root_1;Eukaryota_2759;class_class_order_family_genus_Amoebozoa_sp._1892891;class_order_family_genus_Amoebozoa_sp._1892891;order_family_genus_Amoebozoa_sp._1892891;family_genus_Amoebozoa_sp._1892891;genus_Amoebozoa_sp._1892891;Amoebozoa_sp._1892891` 
+Which includes taxIDs and taxonomy!
+
+
+Extract the accession number and the taxID at the very end of the string. Use the first imported version of the fasta file:
+```{r}
+# library(stringr)
+
+# Read the FASTA file
+midori_fasta_headers <- readLines("MIDORI2_NUC_GB263_CO1/MIDORI2_LONGEST_NUC_GB263_CO1_BLAST.fasta")
+midori_fasta_headers <- grep("^>", midori_fasta_headers, value = TRUE)
+
+# Extract accession number and taxID
+MIDORI_mapping_file <- data.frame(
+  Accession_Number = sub("^>([A-Z]{1,2}\\d+\\.\\d+).*", "\\1", midori_fasta_headers),
+  TaxID = sub(".*_(\\d+)$", "\\1", midori_fasta_headers)
+)
+
+# View result
+MIDORI_mapping_file
+```
+
+Check for NAs and zeroes
+```{r}
+sum(is.na(MIDORI_mapping_file))
+sum(MIDORI_mapping_file == 0)
+```
+
+
+If necessary, make sure taxaIDs are not in scientific notation
+```{r}
+#mapping_file$taxaId <- format(mapping_file$taxaId, scientific = FALSE)
+
+```
+
+
+export to mapping file as .txt and format into a blastdb
+```{r}
+write.table(MIDORI_mapping_file, "MIDORI2_NUC_GB263_CO1/mapping_file.txt", sep='\t', col.names = FALSE, row.names = FALSE, quote=FALSE)
+```
+
+#### Make blastdb
+Make new blastdb using this mapping file and the blast3.fasta file (which should have only accessions in headers and simplified one-line sequences)
+```{bash}
+makeblastdb -in MIDORI2_LONGEST_NUC_GB263_CO1_BLAST3.fasta -dbtype nucl -parse_seqids -out blastdb/nt -blastdb_version 5 -taxid_map mapping_file.txt
+```
+
+
+No errors!...
+Try blasting expeditiona-test against this... it works well and results are very similar to blasting against all of NCBI nt  
+Check output of same dataset blasted against 
+[NCBI nt](/Volumes/easystore/eDNA/shirp-edna/results-revamp-2024-CO1-expeditiona-test/NCBI_nt_0201_test_output/ASV2Taxonomy/KRONA_plots/results-revamp-2024-CO1-expeditiona-test_samplesSummedKRONA.html)
+vs 
+[MIDORI](/Volumes/easystore/eDNA/shirp-edna/results-revamp-2024-CO1-expeditiona-test/MIDORI_longest_0205_test_output/ASV2Taxonomy/KRONA_plots/results-revamp-2024-CO1-expeditiona-test_samplesSummedKRONA.html)
+
+and actually it gives more taxonomic resolution for an important species (Mercenaria mercenaria), so use MIDORI.. Also blasting against local MIDORI is much much faster.
