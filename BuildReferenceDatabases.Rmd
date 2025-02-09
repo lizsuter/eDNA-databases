@@ -779,3 +779,66 @@ vs
 [MIDORI](/Volumes/easystore/eDNA/shirp-edna/results-revamp-2024-CO1-expeditiona-test/MIDORI_longest_0205_test_output/ASV2Taxonomy/KRONA_plots/results-revamp-2024-CO1-expeditiona-test_samplesSummedKRONA.html)
 
 and actually it gives more taxonomic resolution for an important species (Mercenaria mercenaria), so use MIDORI.. Also blasting against local MIDORI is much much faster.
+
+### Color scheme
+```{r}
+library(ggplot2) 
+library(dplyr)
+library(scales)        
+library(RColorBrewer)
+```
+
+Generate a color key for plots so species colors are consistent across shirp
+
+Import commonnames database (this is continually curated by me)
+```{r}
+commonames <- read.csv(file = "commonnames.csv")
+```
+
+Color by common names because there are some things that are tax IDed separately but are functionally the same (eg. Anchovies) and we group them together by calling them the same Common Name
+
+```{r}
+# Example: Create a list of elements corresponding to common names
+elements <- unique(commonames$CommonName)
+
+# Generate a diverging color palette
+num_colors <- length(elements)
+palette <- colorRampPalette(brewer.pal(11, "Paired"))(num_colors)  
+
+# Shuffle colors randomly
+set.seed(123)  # For reproducibility
+palette <- sample(palette)
+
+# Assign colors to each element
+color_assignment <- setNames(palette, elements)
+
+# View first few assignments
+head(color_assignment)
+
+
+# Convert to a data frame for ggplot
+df <- data.frame(CommonName = names(color_assignment), Color = color_assignment)
+
+# Plot colors as a tile plot
+ggplot(df, aes(x = CommonName, y = 1, fill = Color)) +
+  geom_tile() +
+  scale_fill_identity() +  # Use the assigned colors directly
+  theme_minimal() +
+  theme(axis.text.x = element_blank(),  
+        axis.ticks = element_blank(),
+        axis.title = element_blank(),
+        panel.grid = element_blank()) +
+  labs(title = "Random Diverging Colors for Common Names")
+```
+
+Convert element back into data frame and export for use in other scripts
+```{r}
+commonnames_colors <- left_join(commonames, df, by = c("CommonName" = "CommonName")) 
+commonnames_colors
+```
+
+Overwrite commonnames file with colors column-
+```{r}
+write.csv(commonnames_colors,file = "commonnames.csv", row.names = FALSE)
+```
+

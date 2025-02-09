@@ -1,265 +1,260 @@
-Species,CommonName,Species-CommonName
-Menidia menidia,Atlantic silverside,Menidia menidia (Atlantic silverside)
-Brevoortia tyrannus,Menhaden,Brevoortia tyrannus (Menhaden)
-Engraulis encrasicolus,European anchovy,Engraulis encrasicolus (European anchovy)
-Pomatomus saltatrix,Bluefish,Pomatomus saltatrix (Bluefish)
-Lutjanus griseus,Grey snapper,Lutjanus griseus (Grey snapper)
-Paralichthys dentatus,Summer flounder,Paralichthys dentatus (Summer flounder)
-Alosa mediocris,Hickory shad,Alosa mediocris (Hickory shad)
-Gobiosoma ginsburgi,Seaboard goby,Gobiosoma ginsburgi (Seaboard goby)
-Scophthalmus aquosus,Windowpane flounder,Scophthalmus aquosus (Windowpane flounder)
-Centropristis striata,Black seabass,Centropristis striata (Black seabass)
-Stenotomus chrysops,Scup,Stenotomus chrysops (Scup)
-Syngnathus fuscus,Northern pipefish,Syngnathus fuscus (Northern pipefish)
-Leiostomus xanthurus,Spot,Leiostomus xanthurus (Spot)
-Menticirrhus saxatilis,Northern kingfish,Menticirrhus saxatilis (Northern kingfish)
-Tautoga onitis,Tautog,Tautoga onitis (Tautog)
-Myoxocephalus aenaeus,Grubby sculpin,Myoxocephalus aenaeus (Grubby sculpin)
-Pseudopleuronectes americanus,Winter flounder,Pseudopleuronectes americanus (Winter flounder)
-Morone saxatilis,Striped bass,Morone saxatilis (Striped bass)
-Etropus microstomus,Smallmouth flounder,Etropus microstomus (Smallmouth flounder)
-Cynoscion regalis,Weakfish,Cynoscion regalis (Weakfish)
-Tautogolabrus adspersus,Cunner,Tautogolabrus adspersus (Cunner)
-Anguilla rostrata,American eel,Anguilla rostrata (American eel)
-Thunnus obesus,Bigeye tuna,Thunnus obesus (Bigeye tuna)
-Apeltes quadracus,Stickleback,Apeltes quadracus (Stickleback)
-Fundulus majalis,Striped killifish,Fundulus majalis (Striped killifish)
-Membras martinica,Rough silverside,Membras martinica (Rough silverside)
-Urophycis floridana,Spotted hake,Urophycis floridana (Spotted hake)
-Scomber japonicus,Chub mackerel,Scomber japonicus (Chub mackerel)
-Prionotus carolinus,Northern searobin,Prionotus carolinus (Northern searobin)
-Homo sapiens,Human,Homo sapiens (Human)
-Thunnus thynnus,Atlantic bluefin tuna,Thunnus thynnus (Atlantic bluefin tuna)
-Bairdiella chrysoura,American silver perch,Bairdiella chrysoura (American silver perch)
-Microgadus tomcod,Atlantic tomcod,Microgadus tomcod (Atlantic tomcod)
-Sus scrofa,Wild boar,Sus scrofa (Wild boar)
-Engraulis mordax,Bay anchovy,Engraulis mordax (Bay anchovy)
-Myoxocephalus quadricornis,Fourhorn sculpin,Myoxocephalus quadricornis (Fourhorn sculpin)
-Fundulus heteroclitus,Mummichog,Fundulus heteroclitus (Mummichog)
-Urophycis floridana,Red hake,Urophycis floridana (Red hake)
-Opsanus tau,Oyster toadfish,Opsanus tau (Oyster toadfish)
-Katsuwonus pelamis,Skipjack tuna,Katsuwonus pelamis (Skipjack tuna)
-Sphoeroides maculatus,Northern puffer,Sphoeroides maculatus (Northern puffer)
-Merluccius bilinearis,Silver hake,Merluccius bilinearis (Silver hake)
-Belone belone,Blue chromis,Belone belone (Blue chromis)
-Felis catus,Cat,Felis catus (Cat)
-Prionotus evolans,Striped searobin,Prionotus evolans (Striped searobin)
-Rhinoptera bonasus,Cownose ray,Rhinoptera bonasus (Cownose ray)
-Linepithema humile,Ant,Linepithema humile (Ant)
-Bos taurus,Cattle,Bos taurus (Cattle)
-Brevoortia patronus,Menhaden,Brevoortia patronus (Menhaden)
-Anchoa mitchilli,Bay anchovy,Anchoa mitchilli (Bay anchovy)
-Menidia peninsulae,Tidewater silverside,Menidia peninsulae (Tidewater silverside)
-Chilomycterus schoepfii,Striped burrfish,Chilomycterus schoepfii (Striped burrfish)
-Lucania goodei,Bluefin Killifish,Lucania goodei (Bluefin Killifish)
-Chasmodes bosquianus,Striped blenny,Chasmodes bosquianus (Striped blenny)
-Scomber colias,Atlantic chub mackerel,Scomber colias (Atlantic chub mackerel)
-Mugil cephalus,Flathead grey mullet,Mugil cephalus (Flathead grey mullet)
-Sphoeroides nephelus,Southern puffer,Sphoeroides nephelus (Southern puffer)
-Stenotomus caprinus,Longspine porgy,Stenotomus caprinus (Longspine porgy)
-Trinectes maculatus,Hogchoker,Trinectes maculatus (Hogchoker)
-Gobiosoma bosc,Naked goby,Gobiosoma bosc (Naked goby)
-Urophycis regia,Spotted codling,Urophycis regia (Spotted codling)
-Anchoa lyolepis,Shortfinger anchovy,Anchoa lyolepis (Shortfinger anchovy)
-Caranx hippos,Crevalle jack,Caranx hippos (Crevalle jack)
-Thunnus albacares,Yellowfin tuna,Thunnus albacares (Yellowfin tuna)
-Aluterus schoepfii,Orange filefish,Aluterus schoepfii (Orange filefish)
-Lactophrys trigonus,Buffalo trunkfish,Lactophrys trigonus (Buffalo trunkfish)
-Peprilus burti,Gulf butterfish,Peprilus burti (Gulf butterfish)
-Mugil curema,White mullet,Mugil curema (White mullet)
-Alosa sapidissima,American shad,Alosa sapidissima (American shad)
-Lutjanus campechanus,Northern red snapper,Lutjanus campechanus (Northern red snapper)
-Ctenogobius boleosoma,Darter goby,Ctenogobius boleosoma (Darter goby)
-Fundulus luciae,Spotfin killifish,Fundulus luciae (Spotfin killifish)
-Cyprinodon variegatus,Sheepshead minnow,Cyprinodon variegatus (Sheepshead minnow)
-Strongylura marina,Atlantic needlefish,Strongylura marina (Atlantic needlefish)
-Thunnus maccoyii,Southern bluefin tuna,Thunnus maccoyii (Southern bluefin tuna)
-Sardinops sagax,Sardine,Sardinops sagax (Sardine)
-Ammodytes dubius,Northern sandlance,Ammodytes dubius (Northern sandlance)
-Balistes capriscus,Grey triggerfsh,Balistes capriscus (Grey triggerfsh)
-Eucinostomus gula,Silver jenny,Eucinostomus gula (Silver jenny)
-Anchoa hepsetus,Broad-striped anchovy,Anchoa hepsetus (Broad-striped anchovy)
-Hyperoplus lanceolatus,Great sand eel,Hyperoplus lanceolatus (Great sand eel)
-Thunnus tonggol,Longtail tuna,Thunnus tonggol (Longtail tuna)
-Sphoeroides parvus,Least puffer,Sphoeroides parvus (Least puffer)
-Sardinella aurita,Round sardinella,Sardinella aurita (Round sardinella)
-Hypsoblennius hentz,Feather blenny,Hypsoblennius hentz (Feather blenny)
-Alosa agone,Twaite shad,Alosa agone (Twaite shad)
-Brevoortia gunteri,Menhaden,Brevoortia gunteri (Menhaden)
-Ocyurus chrysurus,Yellowtail snapper,Ocyurus chrysurus (Yellowtail snapper)
-Euthynnus alletteratus,Little tunny,Euthynnus alletteratus (Little tunny)
-Eucinostomus sp. RA02,unclassified Eucinostomus,Eucinostomus sp. RA02 (unclassified Eucinostomus)
-Astroscopus guttatus,Northern stargazer,Astroscopus guttatus (Northern stargazer)
-Menidia beryllina,Inland silverside,Menidia beryllina (Inland silverside)
-Allothunnus fallai,Slender tuna,Allothunnus fallai (Slender tuna)
-Coryphaena hippurus,Mahi-mahi,Coryphaena hippurus (Mahi-mahi)
-Mustelus canis,Smooth dogfish,Mustelus canis (Smooth dogfish)
-Bathytoshia centroura,Roughtail stingray,Bathytoshia centroura (Roughtail stingray)
-Myliobatis freminvillei,Bullnose ray,Myliobatis freminvillei (Bullnose ray)
-Leucoraja erinacea,Little skate,Leucoraja erinacea (Little skate)
-Squalus acanthias,Spiny dogfish,Squalus acanthias (Spiny dogfish)
-Raja eglanteria,Clearnose skate,Raja eglanteria (Clearnose skate)
-Gymnura altavela,Spiny Butterfly Ray,Gymnura altavela (Spiny Butterfly Ray)
-Amblyraja radiata,Thorny skate,Amblyraja radiata (Thorny skate)
-Leucoraja ocellata,Winter skate,Leucoraja ocellata (Winter skate)
-Neoraja iberica,Iberian pygmy skate,Neoraja iberica (Iberian pygmy skate)
-Malacoraja kreffti,Krefft's ray,Malacoraja kreffti (Krefft's ray)
-Mustelus mosis,Arabian smooth-hound,Mustelus mosis (Arabian smooth-hound)
-Isurus oxyrinchus,Mako shark,Isurus oxyrinchus (Mako shark)
-Carcharias taurus,Sand tiger shark,Carcharias taurus (Sand tiger shark)
-Canis lupus,Wolf,Canis lupus (Wolf)
-Squalus suckleyi,Pacific spiny dogfish,Squalus suckleyi (Pacific spiny dogfish)
-Pteroplatytrygon violacea,Pelagic sting ray,Pteroplatytrygon violacea (Pelagic sting ray)
-Scyliorhinus retifer,Chain catshark,Scyliorhinus retifer (Chain catshark)
-Triakis semifasciata,Leopard shark,Triakis semifasciata (Leopard shark)
-Ginglymostoma cirratum,Nurse shark,Ginglymostoma cirratum (Nurse shark)
-Orectolobus japonicus,Japanese wobbegong,Orectolobus japonicus (Japanese wobbegong)
-Squalus sp.,Spurdogs,Squalus sp. (Spurdogs)
-Mustelus sp.,Smooth-hounds,Mustelus sp. (Smooth-hounds)
-Bathytoshia sp.,Bathytoshia sp.,Bathytoshia sp.
-Rhinoptera sp.,Rhinoptera sp.,Rhinoptera sp.
-Pteroplatytrygon sp.,Pteroplatytrygon sp.,Pteroplatytrygon sp.
-Scombriformes sp.,Scombriformes sp.,Scombriformes sp.
-Paralichthys sp.,Large-tooth flounders,Paralichthys sp. (Large-tooth flounders)
-Chaetodon striatus,Banded butterflyfish,Chaetodon striatus (Banded butterflyfish)
-Sphyraena borealis,Northern sennet,Sphyraena borealis (Northern sennet)
-Synodus foetens,Inshore lizardfish,Synodus foetens (Inshore lizardfish)
-Fundulus sp.,Fundulus sp.,Fundulus sp.
-Anchoa sp.,Anchovies (Anchoa),Anchoa sp. (Anchovies)
-Lopholatilus chamaeleonticeps,Great northern tilefish,Lopholatilus chamaeleonticeps (Great northern tilefish)
-Chaetodon ocellatus,Spotfin butterflyfish,Chaetodon ocellatus (Spotfin butterflyfish)
-Conger oceanicus,American conger,Conger oceanicus (American conger)
-Peprilus triacanthus,American butterfish,Peprilus triacanthus (American butterfish)
-Sphoeroides spengleri,Bandtail puffer,Sphoeroides spengleri (Bandtail puffer)
-Alosa sp.,Shads,Alosa sp. (Shads)
-Pseudopleuronectes sp.,Righteye flounders,Pseudopleuronectes sp. (Righteye flounders)
-Archosargus probatocephalus,Sheepshead,Archosargus probatocephalus (Sheepshead)
-Gobiesox strumosus,Skilletfish,Gobiesox strumosus (Skilletfish)
-Nomeidae sp.,Driftfishes,Nomeidae sp. (Driftfishes)
-Opisthonema oglinum,Atlantic thread herring,Opisthonema oglinum (Atlantic thread herring)
-Selene setapinnis,Atlantic moonfish,Selene setapinnis (Atlantic moonfish)
-Aluterus heudelotii,Dotterel filefish,Aluterus heudelotii (Dotterel filefish)
-Unknown Scombriformes (Order),Scombriformes,Scombriformes
-Unknown Paralichthys (Genus),Large-tooth flounders,Paralichthys (Large-tooth flounders)
-Unknown Fundulus (Genus),Fundulus sp.,Fundulus sp.
-Unknown Anchoa (Genus),Anchovies (Anchoa),Anchoa sp. (Anchovies)
-Unknown Alosa (Genus),Shads,Alosa sp. (Shads)
-Unknown Pseudopleuronectes (Genus),Righteye flounders,Pseudopleuronectes sp. (Righteye flounders)
-Unknown Nomeidae (Family),Driftfishes,Nomeidae (Driftfishes)
-Unknown Engraulidae (Family),Anchovies (Engraulidae),Engraulidae (Anchovy)
-Megaptera novaeangliae,Humpback whale,Megaptera novaeangliae (Humpback whale)
-Unknown Scombridae (Family),Scombrids,Scombridae (Scombrids)
-Unknown Brevoortia (Genus),Menhaden,Brevoortia sp. (Menhaden)
-Unknown Bathytoshia (Genus),Bathytoshia sp.,Bathytoshia sp.
-Unknown Triakidae (Family),Houndsharks,Triakidae (Houndsharks)
-Unknown Mustelus (Genus),Smooth-hounds,Mustelus sp. (Smooth-hounds)
-Unknown Clupeiformes (Order),Clupeiformes,Clupeiformes
-Unknown Actinopteri (Class),Actinopteri,Actinopteri
-Unknown Carcharhiniformes (Order),Ground sharks,Carcharhiniformes (Ground sharks)
-Unknown Carcharhinus (Genus),Requiem sharks,Carcharhinus (Requiem sharks)
-Unknown Cypriniformes (Order),Cyprinids,Cypriniformes (Cyprinids)
-Unknown Istiophoriformes (Order),Billfish,Istiophoriformes (Billfish)
-Unknown Sciaenidae (Family),Drums,Sciaenidae (Drums)
-Unknown Chondrichthyes (Class),Cartilaginous fishes,Chondrichthyes (Cartilaginous fishes)
-Unknown Carangiformes (Order),Carangiformes,Carangiformes
-Unknown Holacanthus (Genus),Marine angelfishes,Holacanthus sp. (Marine angelfishes)
-Unknown Cichliformes (Order),Cichliformes,Cichliformes
-Unknown Gobiiformes (Order),Gobiiformes,Gobiiformes
-Unknown Synbranchiformes (Order),Swamp eels,Synbranchiformes (Swamp eels)
-Unknown Myliobatiformes (Order),Stingrays,Myliobatiformes (Stingrays)
-Mustelus henlei,Brown smooth-hound,Mustelus henlei (Brown smooth-hound)
-Mustelus griseus,Spotless smooth-hound,Mustelus griseus (Spotless smooth-hound)
-Selene vomer,Lookdown,Selene vomer (Lookdown)
-Unknown Siganidae__o (Order),Rabbitfishes,Siganidae (Rabbitfishes)
-Bathytoshia lata,Broad stingray,Bathytoshia lata (Broad stingray)
-Unknown Pristigenys (Genus),Pristigenys,Pristigenys
-Unknown Peprilus (Genus),Peprilus,Peprilus
-Pristigenys refulgens,Blackfringe Bigeye,Pristigenys refulgens (Blackfringe Bigeye)
-Mycteroperca microlepis,Gag,Mycteroperca microlepis (Gag)
-Unknown Paralichthyidae (Family),Large-tooth flounders,Paralichthyidae (Large-tooth flounders)
-Clupea harengus,Atlantic herring,Clupea harengus (Atlantic herring)
-Pollachius virens,Pollock,Pollachius virens (Pollock)
-Pholis gunnellus,Rock gunnel,Pholis gunnellus (Rock gunnel)
-Scomberomorus maculatus,Atlantic Spanish mackerel,Scomberomorus maculatus (Atlantic Spanish mackerel)
-Unknown Sardinops (Genus),Sardinops,Sardine (Sardinops)
-Salmo salar,Atlantic salmon,Salmo salar (Atlantic salmon)
-Unknown Pungitius (Genus),Sticklebacks,Pungitius (Sticklebacks)
-Fistularia tabacaria,Blue-spotted cornetfish,Fistularia tabacaria (Blue-spotted cornetfish)
-Ophidion marginatum,Striped cusk-eel,Ophidion marginatum (Striped cusk-eel)
-Ammodytes tobianus,Lesser sand eel,Ammodytes tobianus (Lesser sand eel)
-Lucania parva,Rainwater killifish,Lucania parva (Rainwater killifish)
-Anchoa compressa,Deepbody anchovy,Anchoa compressa (Deepbody anchovy)
-Auxis rochei,Bullet tuna,Auxis rochei (Bullet tuna)
-Unknown Scomber (Genus),Mackerels,Scomber (Mackerels)
-Myoxocephalus scorpius,Shorthorn sculpin,Myoxocephalus scorpius (Shorthorn sculpin)
-Unknown Lutjanus (Genus),Snappers,Lutjanus (Snappers)
-Unknown Phycidae (Family),Phycid hakes,Phycidae (Phycid hakes)
-Unknown Atherinopsidae (Family),Neotropical silversides,Atherinopsidae (Neotropical silversides)
-Hippocampus erectus,Lined seahorse,Hippocampus erectus (Lined seahorse)
-Unknown Chilomycterus (Genus),Burrfish,Chilomycterus (Burrfish)
-Unknown Carangidae (Family),Jacks and pompanos,Carangidae (Jacks and pompanos)
-Dicentrarchus labrax,European seabass,Dicentrarchus labrax (European seabass)
-Oncorhynchus nerka,Sockeye salmon,Oncorhynchus nerka (Sockeye salmon)
-Oreochromis niloticus,Nile tilapia,Oreochromis niloticus (Nile tilapia)
-Myrophis punctatus,Speckled worm eel,Myrophis punctatus (Speckled worm eel)
-Gobio gobio,Gudgeon,Gobio gobio (Gudgeon)
-Unknown Icosteidae (Family),Ragfish,Icosteidae (Ragfish)
-Sardinella brasiliensis,Brazilian sardinella,Sardinella brasiliensis (Brazilian sardinella)
-Unknown Opsanus (Genus),Toadfishes,Opsanus (Toadfishes)
-Unknown Stenotomus (Genus),Stenotomus,Stenotomus
-Unknown Gempylidae (Family),Escolars,Gempylidae (Escolars)
-Unknown Leuciscidae (Family),Minnows,Leuciscidae (Minnows)
-Unknown Fistularia (Genus),Cornetfish,Fistularia (Cornetfish)
-Unknown Atheriniformes (Order),Silversides,Atheriniformes (Silversides)
-Unknown Clupeidae (Family),Clupeidae,Clupeidae
-Unknown Perciformes (Order),Perciformes,Perciformes
-Unknown Fundulidae (Family),Topminnows and killifishes,Fundulidae (Topminnows and killifishes)
-Unknown Lutjanidae (Family),Snappers,Lutjanidae (Snappers)
-Unknown Labridae (Family),Wrasses,Labridae (Wrasses)
-Ophichthus gomesii,Shrimp eel,Ophichthus gomesii (Shrimp eel)
-Zebrasoma velifer,Sailfin tang,Zebrasoma velifer (Sailfin tang)
-Centropyge interrupta,Japanese angelfish,Centropyge interrupta (Japanese angelfish)
-Coris gaimard,Yellowtail coris,Coris gaimard (Yellowtail coris)
-Pterapogon kauderni,Banggai cardinalfish,Pterapogon kauderni (Banggai cardinalfish)
-Forcipiger flavissimus,Forceps fish,Forcipiger flavissimus (Forceps fish)
-Unknown Xanthichthys (Genus),Triggerfishes,Xanthichthys (Triggerfishes)
-Tursiops truncatus,Common bottlenose dolphin,Tursiops truncatus (Common bottlenose dolphin)
-Pseudopleuronectes yokohamae,Marbled flounder,Pseudopleuronectes yokohamae (Marbled flounder)
-Unknown Syngnathiformes (Order),Pipefishes and seahorses,Syngnathiformes (Pipefishes and seahorses)
-Unknown Delphinidae (Family),Oceanic dolphins,Delphinidae (Oceanic dolphins)
-Selar crumenophthalmus,Bigeye scad,Selar crumenophthalmus (Bigeye scad)
-Lindbergichthys nudifrons,Yellowfin notie,Lindbergichthys nudifrons (Yellowfin notie)
-Unknown Chaetodontidae (Family),Butterflyfish,Chaetodontidae (Butterflyfish)
-Unknown Chromis (Genus),Damselfish,Chromis (Damselfish)
-Stephanolepis hispida,Planehead filefish,Stephanolepis hispida (Planehead filefish)
-Unknown Thunnus (Genus),Tunas,Thunnus (Tunas)
-Unknown Sphyraena (Genus),Barracudas,Sphyraena (Barracudas)
-Eucinostomus sp_ RA02,Eucinostomus,Eucinostomus
-Unknown Sphoeroides (Genus),Pufferfishes,Sphoeroides (Pufferfishes)
-Unknown Leiostomus (Genus),Spot croaker,Leiostomus (Spot croaker)
-Unknown Sciaenidae__o (Order),Drums,Sciaenidae (Drums)
-Unknown Mugiliformes (Order),Mugiliformes,Mugiliformes
-Unknown Tetraodontiformes (Order),Tetraodontiformes,Tetraodontiformes
-Pungitius sp_ Freshwater type,Sticklebacks,Pungitius (Sticklebacks)
-Unknown Squalus (Genus),Spurdogs,Squalus sp. (Spurdogs)
-Unknown Characiformes (Order),Characiformes,Characiformes
-Unknown Sparidae (Family),Porgies and seabreams,Sparidae (Porgies and seabreams)
-Unknown Rexea (Genus),Snake mackerels,Rexea (Snake mackerels)
-Unknown Syngnathus (Genus),Pipefish,Syngnathus (Pipefish)
-Unknown Sphyraenidae__o (Order),Barracudas,Sphyraenidae (Barracudas)
-Alosa pseudoharengus,Alewife,Alosa pseudoharengus (Alewife)
-Unknown Squaliformes (Order),Squaliformes,Squaliformes ()
-Unknown Microstomus (Genus),Microstomus,Microstomus
-Unknown Rhinoptera (Genus),Cownose rays,Rhinoptera (Cownose rays)
-Unknown Cyprinodontiformes (Order),Cyprinodontiformes,Cyprinodontiformes
-Unknown Salmoniformes (Order),Salmoniformes,Salmoniformes
-Unknown Squalidae (Family),Squalidae,Squalidae
-Unknown Leucoraja (Genus),Hardnose skates,Leucoraja (Hardnose skates)
-Unknown Rajidae (Family),Skates,Rajidae (Skates)
-Unknown Dasyatidae (Family),Whiptail stingrays,Dasyatidae (Whiptail stingrays)
-Unknown Lutjaniformes (Order),Lutjaniformes,Lutjaniformes
-Unknown Lamniformes (Order),Mackerel sharks,Lamniformes (Mackerel sharks)
-Unknown Myliobatidae (Family),Eagle rays,Myliobatidae (Eagle rays)
-Unknown Spariformes (Order),Spariformes,Spariformes
-Unknown Tetraodontidae (Family),Tetraodontidae,Tetraodontidae
-Unknown Myliobatis (Genus),Eagle rays,Myliobatis (Eagle rays)
+Species,CommonName,Species.CommonName,Color
+Menidia menidia,Atlantic silverside,Menidia menidia (Atlantic silverside),steelblue4
+Brevoortia tyrannus,Atlantic menhaden,Brevoortia sp. (Atlantic menhaden),#FF7F00
+Engraulis encrasicolus,Anchovies,Engraulidae (Anchovies),linen
+Pomatomus saltatrix,Bluefish,Pomatomus saltatrix (Bluefish),#589CC7
+Lutjanus griseus,Grey snapper,Lutjanus griseus (Grey snapper),#916DB2
+Paralichthys dentatus,Summer flounder,Paralichthyidae (Summer flounder),darkseagreen
+Alosa mediocris,Hickory shad,Alosa mediocris (Hickory shad),lightsalmon
+Gobiosoma ginsburgi,Seaboard goby,Gobiosoma ginsburgi (Seaboard goby),#DF536B
+Scophthalmus aquosus,Windowpane flounder,Scophthalmus aquosus (Windowpane flounder),#9DD08F
+Centropristis striata,Black sea bass,Centropristis striata (Black sea bass),#61D04F
+Stenotomus chrysops,Scup,Stenotomus chrysops (Scup),maroon4
+Syngnathus fuscus,Northern pipefish,Syngnathus fuscus (Northern pipefish),darkgreen
+Leiostomus xanthurus,Spot,Leiostomus xanthurus (Spot),#2297E6
+Menticirrhus saxatilis,Northern kingfish,Menticirrhus saxatilis (Northern kingfish),#F79A97
+Tautoga onitis,Tautog,Tautoga onitis (Tautog),#28E2E5
+Myoxocephalus aenaeus,Grubby sculpin,Myoxocephalus aenaeus (Grubby sculpin),#A98F99
+Pseudopleuronectes americanus,Winter flounder,Pseudopleuronectes sp. (Winter flounder),indianred2
+Morone saxatilis,Striped bass,Morone saxatilis (Striped bass),thistle
+Etropus microstomus,Smallmouth flounder,Etropus microstomus (Smallmouth flounder),burlywood3
+Cynoscion regalis,Weakfish,Cynoscion regalis (Weakfish),tomato
+Tautogolabrus adspersus,Cunner,Tautogolabrus adspersus (Cunner),lightsteelblue
+Anguilla rostrata,American eel,Anguilla rostrata (American eel),aquamarine2
+Thunnus obesus,Bigeye tuna,Thunnus obesus (Bigeye tuna),lightyellow2
+Apeltes quadracus,Stickleback,Apeltes quadracus (Stickleback),#DED499
+Fundulus majalis,Striped killifish,Fundulus majalis (Striped killifish),#886499
+Membras martinica,Rough silverside,Membras martinica (Rough silverside),red
+Urophycis floridana,Spotted hake,Urophycis floridana (Spotted hake),#849D58
+Scomber japonicus,Chub mackerel,Scomber japonicus (Chub mackerel),#9E9C66
+Prionotus carolinus,Northern searobin,Prionotus carolinus (Northern searobin),#CABA99
+Thunnus thynnus,Atlantic bluefin tuna,Thunnus thynnus (Atlantic bluefin tuna),mediumorchid
+Bairdiella chrysoura,American silver perch,Bairdiella chrysoura (American silver perch),#E62F27
+Microgadus tomcod,Atlantic tomcod,Microgadus tomcod (Atlantic tomcod),#729E4E
+Engraulis mordax,Anchovies,Engraulidae (Anchovies),linen
+Myoxocephalus quadricornis,Fourhorn sculpin,Myoxocephalus quadricornis (Fourhorn sculpin),#FDAC4F
+Fundulus heteroclitus,Mummichog,Fundulus heteroclitus (Mummichog),#CD0BBC
+Urophycis floridana,Red hake,Urophycis floridana (Red hake),#E83637
+Opsanus tau,Oyster toadfish,Opsanus tau (Oyster toadfish),peachpuff
+Katsuwonus pelamis,Skipjack tuna,Katsuwonus pelamis (Skipjack tuna),#6F449D
+Sphoeroides maculatus,Northern puffer,Sphoeroides maculatus (Northern puffer),midnightblue
+Merluccius bilinearis,Silver hake,Merluccius bilinearis (Silver hake),#619E45
+Belone belone,Blue chromis,Belone belone (Blue chromis),#227AB5
+Prionotus evolans,Striped searobin,Prionotus evolans (Striped searobin),#FE8A14
+Rhinoptera bonasus,Cownose ray,Rhinoptera bonasus (Cownose ray),#F5C710
+Brevoortia patronus,Atlantic menhaden,Brevoortia sp. (Atlantic menhaden),#FF7F00
+Anchoa mitchilli,Anchovies,Engraulidae (Anchovies),linen
+Menidia peninsulae,Tidewater silverside,Menidia peninsulae (Tidewater silverside),#FBB369
+Chilomycterus schoepfii,Striped burrfish,Chilomycterus schoepfii (Striped burrfish),#B89CCA
+Lucania goodei,Bluefin Killifish,Lucania goodei (Bluefin Killifish),#B397C8
+Chasmodes bosquianus,Striped blenny,Chasmodes bosquianus (Striped blenny),#EF8E40
+Scomber colias,Atlantic chub mackerel,Scomber colias (Atlantic chub mackerel),#62A7A0
+Mugil cephalus,Flathead grey mullet,Mugil cephalus (Flathead grey mullet),#349F2C
+Sphoeroides nephelus,Southern puffer,Sphoeroides nephelus (Southern puffer),#F8F699
+Stenotomus caprinus,Longspine porgy,Stenotomus caprinus (Longspine porgy),#8D68B0
+Trinectes maculatus,Hogchoker,Trinectes maculatus (Hogchoker),#53B044
+Gobiosoma bosc,Naked goby,Gobiosoma bosc (Naked goby),dodgerblue3
+Urophycis regia,Spotted hake,Urophycis regia (Spotted hake),#F57A7A
+Anchoa lyolepis,Anchovies,Engraulidae (Anchovies),linen
+Caranx hippos,Crevalle jack,Caranx hippos (Crevalle jack),honeydew2
+Thunnus albacares,Yellowfin tuna,Thunnus albacares (Yellowfin tuna),#B6A099
+Aluterus schoepfii,Orange filefish,Aluterus schoepfii (Orange filefish),firebrick
+Lactophrys trigonus,Buffalo trunkfish,Lactophrys trigonus (Buffalo trunkfish),#2E81B9
+Peprilus burti,Butterfish,Peprilus burti (Butterfish),greenyellow
+Mugil curema,White mullet,Mugil curema (White mullet),hotpink3
+Alosa sapidissima,American shad,Alosa sapidissima (American shad),#64B850
+Lutjanus campechanus,Northern red snapper,Lutjanus campechanus (Northern red snapper),#4C94C3
+Ctenogobius boleosoma,Darter goby,Ctenogobius boleosoma (Darter goby),#6A3D9A
+Fundulus luciae,Spotfin killifish,Fundulus luciae (Spotfin killifish),#F88B8A
+Cyprinodon variegatus,Sheepshead minnow,Cyprinodon variegatus (Sheepshead minnow),#88BAD8
+Strongylura marina,Atlantic needlefish,Strongylura marina (Atlantic needlefish),mediumblue
+Thunnus maccoyii,Southern bluefin tuna,Thunnus maccoyii (Southern bluefin tuna),#F68723
+Sardinops sagax,Sardine,Sardinops sagax (Sardine),#83BE97
+Ammodytes dubius,Northern sandlance,Ammodytes dubius (Northern sandlance),#FFFF99
+Balistes capriscus,Grey triggerfsh,Balistes capriscus (Grey triggerfsh),#BDA999
+Eucinostomus gula,Silver jenny,Eucinostomus gula (Silver jenny),#D7CB99
+Anchoa hepsetus,Anchovies,Engraulidae (Anchovies),linen
+Hyperoplus lanceolatus,Great sand eel,Hyperoplus lanceolatus (Great sand eel),#CBB0CE
+Thunnus tonggol,Longtail tuna,Thunnus tonggol (Longtail tuna),#94C2DC
+Sphoeroides parvus,Least puffer,Sphoeroides parvus (Least puffer),#5EA0CA
+Sardinella aurita,Round sardinella,Sardinella aurita (Round sardinella),#CEADC4
+Hypsoblennius hentz,Feather blenny,Hypsoblennius hentz (Feather blenny),#F1784B
+Alosa agone,Twaite shad,Alosa agone (Twaite shad),#91CE71
+Brevoortia gunteri,Atlantic menhaden,Brevoortia sp. (Atlantic menhaden),#FF7F00
+Ocyurus chrysurus,Yellowtail snapper,Ocyurus chrysurus (Yellowtail snapper),#287EB7
+Euthynnus alletteratus,Little tunny,Euthynnus alletteratus (Little tunny),#E59A8D
+Eucinostomus sp. RA02,unclassified Eucinostomus,Eucinostomus sp. RA02 (unclassified Eucinostomus),#287EB1
+Astroscopus guttatus,Northern stargazer,Astroscopus guttatus (Northern stargazer),#69AB9E
+Menidia beryllina,Inland silverside,Menidia beryllina (Inland silverside),#E52527
+Allothunnus fallai,Slender tuna,Allothunnus fallai (Slender tuna),#4895A8
+Coryphaena hippurus,Mahi-mahi,Coryphaena hippurus (Mahi-mahi),#FDB55E
+Mustelus canis,Smooth dogfish,Mustelus canis (Smooth dogfish),gray
+Bathytoshia centroura,Roughtail stingray,Bathytoshia centroura (Roughtail stingray),#E73032
+Myliobatis freminvillei,Bullnose ray,Myliobatis freminvillei (Bullnose ray),#4DAD3F
+Leucoraja erinacea,Little skate,Leucoraja erinacea (Little skate),#3DA533
+Squalus acanthias,Spiny dogfish,Squalus acanthias (Spiny dogfish),#EC5439
+Raja eglanteria,Clearnose skate,Raja eglanteria (Clearnose skate),#8D9D5D
+Gymnura altavela,Spiny Butterfly Ray,Gymnura altavela (Spiny Butterfly Ray),#C29B7A
+Amblyraja radiata,Thorny skate,Amblyraja radiata (Thorny skate),#FCBA6C
+Leucoraja ocellata,Winter skate,Leucoraja ocellata (Winter skate),#97D176
+Neoraja iberica,Iberian pygmy skate,Neoraja iberica (Iberian pygmy skate),#AB8CC2
+Malacoraja kreffti,Krefft's ray,Malacoraja kreffti (Krefft's ray),#EB4748
+Mustelus mosis,Smooth dogfish,Mustelus canis (Smooth dogfish),gray
+Isurus oxyrinchus,Mako shark,Isurus oxyrinchus (Mako shark),#957599
+Carcharias taurus,Sand tiger shark,Carcharias taurus (Sand tiger shark),#DE9E82
+Canis lupus,Wolf,Canis lupus (Wolf),#4691C1
+Squalus suckleyi,Pacific spiny dogfish,Squalus suckleyi (Pacific spiny dogfish),#B0DE8A
+Pteroplatytrygon violacea,Pelagic sting ray,Pteroplatytrygon violacea (Pelagic sting ray),#86C969
+Scyliorhinus retifer,Chain catshark,Scyliorhinus retifer (Chain catshark),#FE9E37
+Triakis semifasciata,Leopard shark,Triakis semifasciata (Leopard shark),#ED5253
+Ginglymostoma cirratum,Nurse shark,Ginglymostoma cirratum (Nurse shark),#E4DC99
+Orectolobus japonicus,Japanese wobbegong,Orectolobus japonicus (Japanese wobbegong),#E4211F
+Squalus sp.,Spurdogs,Squalus sp. (Spurdogs),#F18C36
+Mustelus sp.,Smooth dogfish,Mustelus canis (Smooth dogfish),gray
+Bathytoshia sp.,Roughtail stingray,Bathytoshia centroura (Roughtail stingray),#E73032
+Rhinoptera sp.,Rhinoptera sp.,Rhinoptera sp.,#E41F21
+Pteroplatytrygon sp.,Pelagic sting ray,Pteroplatytrygon violacea (Pelagic sting ray),#86C969
+Scombriformes sp.,Scombriformes,Scombriformes,gold3
+Paralichthys sp.,Summer flounder,Paralichthyidae (Summer flounder),darkseagreen
+Chaetodon striatus,Banded butterflyfish,Chaetodon striatus (Banded butterflyfish),violet
+Sphyraena borealis,Northern sennet,Sphyraena borealis (Northern sennet),#FDBF6F
+Synodus foetens,Inshore lizardfish,Synodus foetens (Inshore lizardfish),cadetblue4
+Fundulus sp.,Fundulus sp.,Fundulus sp.,chocolate4
+Anchoa sp.,Anchovies,Engraulidae (Anchovies),linen
+Lopholatilus chamaeleonticeps,Great northern tilefish,Lopholatilus chamaeleonticeps (Great northern tilefish),darkorange3
+Chaetodon ocellatus,Spotfin butterflyfish,Chaetodon ocellatus (Spotfin butterflyfish),springgreen
+Conger oceanicus,American conger eel,Conger oceanicus (American conger eel),floralwhite
+Peprilus triacanthus,Butterfish,Peprilus triacanthus (Butterfish),greenyellow
+Sphoeroides spengleri,Bandtail puffer,Sphoeroides spengleri (Bandtail puffer),blue4
+Alosa sp.,Shads,Alosa sp. (Shads),lightseagreen
+Pseudopleuronectes sp.,Winter flounder,Pseudopleuronectes sp. (Winter flounder),indianred2
+Archosargus probatocephalus,Sheepshead,Archosargus probatocephalus (Sheepshead),grey97
+Gobiesox strumosus,Skilletfish,Gobiesox strumosus (Skilletfish),lightsalmon3
+Nomeidae sp.,Scombriformes,Scombriformes,gold3
+Opisthonema oglinum,Atlantic thread herring,Opisthonema oglinum (Atlantic thread herring),#3D9F31
+Selene setapinnis,Atlantic moonfish,Selene setapinnis (Atlantic moonfish),chartreuse4
+Aluterus heudelotii,Dotterel filefish,Aluterus heudelotii (Dotterel filefish),khaki3
+Unknown Scombriformes (Order),Scombriformes,Scombriformes,gold3
+Unknown Paralichthys (Genus),Summer flounder,Paralichthyidae (Summer flounder),darkseagreen
+Unknown Fundulus (Genus),Fundulus sp.,Fundulus sp.,chocolate4
+Unknown Anchoa (Genus),Anchovies,Engraulidae (Anchovies),linen
+Unknown Alosa (Genus),Shads,Alosa sp. (Shads),lightseagreen
+Unknown Pseudopleuronectes (Genus),Winter flounder,Pseudopleuronectes sp. (Winter flounder),indianred2
+Unknown Nomeidae (Family),Scombriformes,Scombriformes,gold3
+Unknown Engraulidae (Family),Anchovies,Engraulidae (Anchovies),linen
+Megaptera novaeangliae,Humpback whale,Megaptera novaeangliae (Humpback whale),rosybrown2
+Unknown Scombridae (Family),Scombriformes,Scombriformes,gold3
+Unknown Brevoortia (Genus),Atlantic menhaden,Brevoortia sp. (Atlantic menhaden),#FF7F00
+Unknown Bathytoshia (Genus),Roughtail stingray,Bathytoshia centroura (Roughtail stingray),#E73032
+Unknown Triakidae (Family),Smooth dogfish,Mustelus canis (Smooth dogfish),gray
+Unknown Mustelus (Genus),Smooth dogfish,Mustelus canis (Smooth dogfish),gray
+Unknown Clupeiformes (Order),Clupeiformes,Clupeiformes,#80C665
+Unknown Actinopteri (Class),Actinopteri,Actinopteri,#699E49
+Unknown Carcharhiniformes (Order),Ground sharks,Carcharhiniformes (Ground sharks),#6FB09C
+Unknown Carcharhinus (Genus),Requiem sharks,Carcharhinus (Requiem sharks),#B09C70
+Unknown Cypriniformes (Order),Cyprinids,Cypriniformes (Cyprinids),#FE992D
+Unknown Istiophoriformes (Order),Billfish,Istiophoriformes (Billfish),#FA8311
+Unknown Sciaenidae (Family),Drums,Sciaenidae (Drums),#F3804F
+Unknown Chondrichthyes (Class),Cartilaginous fishes,Chondrichthyes (Cartilaginous fishes),#A787C0
+Unknown Carangiformes (Order),Carangiformes,Carangiformes,#76AFD2
+Unknown Holacanthus (Genus),Marine angelfishes,Holacanthus sp. (Marine angelfishes),violetred3
+Unknown Cichliformes (Order),Cichliformes,Cichliformes,#A7D982
+Unknown Gobiiformes (Order),Gobiiformes,Gobiiformes,#7B9D53
+Unknown Synbranchiformes (Order),Swamp eels,Synbranchiformes (Swamp eels),#D9A295
+Unknown Myliobatiformes (Order),Stingrays,Myliobatiformes (Stingrays),#7AC361
+Mustelus henlei,Smooth dogfish,Mustelus canis (Smooth dogfish),gray
+Mustelus griseus,Smooth dogfish,Mustelus canis (Smooth dogfish),gray
+Selene vomer,Lookdown,Selene vomer (Lookdown),#A6CEE3
+Unknown Siganidae__o (Order),Rabbitfishes,Siganidae (Rabbitfishes),#89C295
+Bathytoshia lata,Roughtail stingray,Bathytoshia centroura (Roughtail stingray),#E73032
+Unknown Pristigenys (Genus),Short bigeye,Pristigenys (Short bigeye),turquoise
+Unknown Peprilus (Genus),Peprilus,Peprilus,#F07148
+Pristigenys refulgens,Short bigeye,Pristigenys (Short bigeye),turquoise
+Mycteroperca microlepis,Gag grouper,Mycteroperca microlepis (Gag grouper),lightcoral
+Unknown Paralichthyidae (Family),Summer flounder,Paralichthyidae (Summer flounder),darkseagreen
+Clupea harengus,Atlantic herring,Clupea harengus (Atlantic herring),#C9B0D5
+Pollachius virens,Pollock,Pollachius virens (Pollock),#3485BB
+Pholis gunnellus,Rock gunnel,Pholis gunnellus (Rock gunnel),#D7A49F
+Scomberomorus maculatus,Atlantic Spanish mackerel,Scomberomorus maculatus (Atlantic Spanish mackerel),#F8A461
+Unknown Sardinops (Genus),Sardinops,Sardine (Sardinops),#FE9323
+Salmo salar,Atlantic salmon,Salmo salar (Atlantic salmon),#FE9628
+Unknown Pungitius (Genus),Sticklebacks,Pungitius (Sticklebacks),#A2D77E
+Fistularia tabacaria,Bluespotted cornetfish,Fistularia tabacaria (Blue-spotted cornetfish),#FD8007
+Ophidion marginatum,Striped cusk-eel,Ophidion marginatum (Striped cusk-eel),#6ABB54
+Ammodytes tobianus,Lesser sand eel,Ammodytes tobianus (Lesser sand eel),#6AA7CE
+Lucania parva,Rainwater killifish,Lucania parva (Rainwater killifish),#F16969
+Anchoa compressa,Anchovies,Engraulidae (Anchovies),linen
+Auxis rochei,Bullet tuna,Auxis rochei (Bullet tuna),#7CB3D4
+Unknown Scomber (Genus),Mackerels,Scomber (Mackerels),#F48753
+Myoxocephalus scorpius,Shorthorn sculpin,Myoxocephalus scorpius (Shorthorn sculpin),#42A737
+Unknown Lutjanus (Genus),Snappers,Lutjanus (Snappers),#7449A0
+Unknown Phycidae (Family),Phycid hakes,Phycidae (Phycid hakes),#75C05D
+Unknown Atherinopsidae (Family),Neotropical silversides,Atherinopsidae (Neotropical silversides),#D2A9B2
+Hippocampus erectus,Lined seahorse,Hippocampus erectus (Lined seahorse),#A3D48E
+Unknown Chilomycterus (Genus),Burrfish,Chilomycterus (Burrfish),#FDA13B
+Unknown Carangidae (Family),Jacks and pompanos,Carangidae (Jacks and pompanos),#6FBE58
+Dicentrarchus labrax,European sea bass,Dicentrarchus labrax (European sea bass),#EE6340
+Oncorhynchus nerka,Sockeye salmon,Oncorhynchus nerka (Sockeye salmon),#AAD98C
+Oreochromis niloticus,Nile tilapia,Oreochromis niloticus (Nile tilapia),#C3B199
+Myrophis punctatus,Speckled worm eel,Myrophis punctatus (Speckled worm eel),#C0A6D0
+Gobio gobio,Gudgeon,Gobio gobio (Gudgeon),#7C53A5
+Unknown Icosteidae (Family),Scombriformes,Scombriformes,gold3
+Sardinella brasiliensis,Brazilian sardinella,Sardinella brasiliensis (Brazilian sardinella),#5CA2A2
+Unknown Opsanus (Genus),Toadfishes,Opsanus (Toadfishes),#DC9A88
+Unknown Stenotomus (Genus),Stenotomus,Stenotomus,#A282BD
+Unknown Gempylidae (Family),Escolars,Gempylidae (Escolars),#70ABD0
+Unknown Leuciscidae (Family),Minnows,Leuciscidae (Minnows),#FE9B32
+Unknown Fistularia (Genus),Cornetfish,Fistularia (Cornetfish),#59B248
+Unknown Atheriniformes (Order),Silversides,Atheriniformes (Silversides),#408DBF
+Unknown Clupeidae (Family),Clupeidae,Clupeidae,#8E6D99
+Unknown Perciformes (Order),Perciformes,Perciformes,#9A78B8
+Unknown Fundulidae (Family),Topminnows and killifishes,Fundulidae (Topminnows and killifishes),#5EB54C
+Unknown Lutjanidae (Family),Snappers,Lutjanidae (Snappers),#7449A0
+Unknown Labridae (Family),Wrasses,Labridae (Wrasses),#F1ED99
+Ophichthus gomesii,Shrimp eel,Ophichthus gomesii (Shrimp eel),#855EAA
+Zebrasoma velifer,Sailfin tang,Zebrasoma velifer (Sailfin tang),#FDBB68
+Centropyge interrupta,Japanese angelfish,Centropyge interrupta (Japanese angelfish),#E94532
+Coris gaimard,Yellowtail coris,Coris gaimard (Yellowtail coris),#F79D5E
+Pterapogon kauderni,Banggai cardinalfish,Pterapogon kauderni (Banggai cardinalfish),#4290A9
+Forcipiger flavissimus,Forceps fish,Forcipiger flavissimus (Forceps fish),#DCA08C
+Unknown Xanthichthys (Genus),Triggerfishes,Xanthichthys (Triggerfishes),#C4ABD2
+Tursiops truncatus,Common bottlenose dolphin,Tursiops truncatus (Common bottlenose dolphin),#FE8D19
+Pseudopleuronectes yokohamae,Marbled flounder,Pseudopleuronectes yokohamae (Marbled flounder),#784EA3
+Unknown Syngnathiformes (Order),Pipefishes and seahorses,Syngnathiformes (Pipefishes and seahorses),#F67F7F
+Unknown Delphinidae (Family),Oceanic dolphins,Delphinidae (Oceanic dolphins),#F8851A
+Selar crumenophthalmus,Bigeye scad,Selar crumenophthalmus (Bigeye scad),#8058A8
+Lindbergichthys nudifrons,Yellowfin notie,Lindbergichthys nudifrons (Yellowfin notie),#E09B79
+Unknown Chaetodontidae (Family),Butterflyfish,Chaetodontidae (Butterflyfish),#FE8205
+Unknown Chromis (Genus),Damselfish,Chromis (Damselfish),#4F99A6
+Stephanolepis hispida,Planehead filefish,Stephanolepis hispida (Planehead filefish),#EA9253
+Unknown Thunnus (Genus),Tunas,Thunnus (Tunas),#6B3F9B
+Unknown Sphyraena (Genus),Barracudas,Sphyraena (Barracudas),#D5A7A8
+Eucinostomus sp_ RA02,Eucinostomus,Eucinostomus,#76B59B
+Unknown Sphoeroides (Genus),Pufferfishes,Sphoeroides (Pufferfishes),#FAAC65
+Unknown Leiostomus (Genus),Spot croaker,Leiostomus (Spot croaker),#E83E2E
+Unknown Sciaenidae__o (Order),Drums,Sciaenidae (Drums),#F3804F
+Unknown Mugiliformes (Order),Mugiliformes,Mugiliformes,#F06363
+Unknown Tetraodontiformes (Order),Tetraodontiformes,Tetraodontiformes,#FDAF54
+Pungitius sp_ Freshwater type,Sticklebacks,Pungitius (Sticklebacks),#A2D77E
+Unknown Squalus (Genus),Spurdogs,Squalus sp. (Spurdogs),#F18C36
+Unknown Characiformes (Order),Characiformes,Characiformes,#B99B75
+Unknown Sparidae (Family),Porgies and seabreams,Sparidae (Porgies and seabreams),#EC4C4D
+Unknown Rexea (Genus),Snake mackerels,Rexea (Snake mackerels),#48AA3B
+Unknown Syngnathus (Genus),Pipefish,Syngnathus (Pipefish),#F58E56
+Unknown Sphyraenidae__o (Order),Barracudas,Sphyraenidae (Barracudas),#D5A7A8
+Alosa pseudoharengus,Alewife,Alosa pseudoharengus (Alewife),#969D62
+Unknown Squaliformes (Order),Squaliformes,Squaliformes (),#F6965A
+Unknown Microstomus (Genus),Microstomus,Microstomus,#5298C5
+Unknown Rhinoptera (Genus),Cownose ray,Rhinoptera bonasus (Cownose ray),#F5C710
+Unknown Cyprinodontiformes (Order),Cyprinodontiformes,Cyprinodontiformes,#FE850A
+Unknown Salmoniformes (Order),Salmoniformes,Salmoniformes,#589E40
+Unknown Squalidae (Family),Squalidae,Squalidae,#A79C6B
+Unknown Leucoraja (Genus),Hardnose skates,Leucoraja (Hardnose skates),#FE880F
+Unknown Rajidae (Family),Skates,Rajidae (Skates),#64A4CC
+Unknown Dasyatidae (Family),Whiptail stingrays,Dasyatidae (Whiptail stingrays),#A0CAE0
+Unknown Lutjaniformes (Order),Lutjaniformes,Lutjaniformes,#E93B3D
+Unknown Lamniformes (Order),Mackerel sharks,Lamniformes (Mackerel sharks),#ADDC86
+Unknown Myliobatidae (Family),Eagle rays,Myliobatidae (Eagle rays),#3A89BD
+Unknown Spariformes (Order),Spariformes,Spariformes,#9AC6DE
+Unknown Tetraodontidae (Family),Tetraodontidae,Tetraodontidae,#3B8CAB
+Unknown Myliobatis (Genus),Eagle rays,Myliobatis (Eagle rays),#3A89BD
